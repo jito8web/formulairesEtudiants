@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fiche étudiant</title>
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="intro">
+        <h1>Fiche étudiant</h1>
+        <p>
+          Remplissez ce formulaire une seule fois. Les champs marqués d’une *
+          sont obligatoires.
+        </p>
+      </header>
+
+      <form id="form" novalidate>
+        <fieldset>
+          <legend>Vos informations</legend>
+          <div class="row">
+            <div class="field">
+              <label for="nom">Nom *</label
+              ><input
+                id="nom"
+                name="nom"
+                type="text"
+                autocomplete="family-name"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="prenom">Prénom *</label
+              ><input
+                id="prenom"
+                name="prenom"
+                type="text"
+                autocomplete="given-name"
+                required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="naissance">Date de naissance *</label
+              ><input id="naissance" name="naissance" type="date" required />
+            </div>
+            <div class="field">
+              <label for="sexe">Sexe *</label>
+              <select id="sexe" name="sexe" required>
+                <option value="">Choisir</option>
+                <option>Féminin</option>
+                <option>Masculin</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="telephone">Téléphone *</label
+              ><input
+                id="telephone"
+                name="telephone"
+                type="tel"
+                inputmode="tel"
+                placeholder="034 00 000 00"
+                autocomplete="tel"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="email">E-mail *</label
+              ><input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label for="ville">Ville *</label
+            ><input
+              id="ville"
+              name="ville"
+              type="text"
+              autocomplete="address-level2"
+              required
+            />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Votre formation</legend>
+          <div class="row">
+            <div class="field">
+              <label for="filiere">Filière *</label
+              ><input id="filiere" name="filiere" type="text" required />
+            </div>
+            <div class="field">
+              <label for="niveau">Niveau *</label>
+              <select id="niveau" name="niveau" required>
+                <option value="">Choisir</option>
+                <option>L1</option>
+                <option>L2</option>
+                <option>L3</option>
+                <option>M1</option>
+                <option>M2</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Questions</legend>
+          <div class="field">
+            <label for="motivation"
+              >Pourquoi avez-vous choisi cette formation ? *</label
+            ><textarea
+              id="motivation"
+              name="motivation"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="projet">Quel est votre projet après les études ?</label
+            ><textarea id="projet" name="projet" rows="3"></textarea>
+          </div>
+        </fieldset>
+
+        <p id="erreur" class="msg-erreur" role="alert" hidden></p>
+        <button id="envoyer" type="submit">Envoyer ma fiche</button>
+      </form>
+
+      <section id="confirmation" class="confirmation" hidden tabindex="-1">
+        <h2>Fiche envoyée</h2>
+        <p>
+          Merci <strong id="nom-confirme"></strong>, vos informations ont bien
+          été enregistrées. Vous n’avez rien d’autre à faire.
+        </p>
+      </section>
+    </main>
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

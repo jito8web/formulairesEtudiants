@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Administration – Fiches étudiants</title>
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <main class="page admin">
+      <section id="connexion" class="carte">
+        <h1>Espace administrateur</h1>
+        <form id="form-connexion" novalidate>
+          <div class="field">
+            <label for="a-email">E-mail</label
+            ><input
+              id="a-email"
+              type="email"
+              autocomplete="username"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="a-mdp">Mot de passe</label
+            ><input
+              id="a-mdp"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <p id="a-erreur" class="msg-erreur" role="alert" hidden></p>
+          <button type="submit">Se connecter</button>
+        </form>
+      </section>
+
+      <section id="tableau" hidden>
+        <header class="barre">
+          <h1>Fiches étudiants</h1>
+          <button id="deconnexion" class="secondaire" type="button">
+            Se déconnecter
+          </button>
+        </header>
+
+        <div class="stats">
+          <div><strong id="nb-recues">0</strong><span>fiches reçues</span></div>
+          <div><strong id="nb-attendues">50</strong><span>attendues</span></div>
+          <div>
+            <strong id="nb-manquantes">50</strong><span>manquantes</span>
+          </div>
+        </div>
+        <div class="progression" aria-hidden="true">
+          <div id="barre-prog"></div>
+        </div>
+
+        <div class="outils">
+          <input
+            id="recherche"
+            type="search"
+            placeholder="Rechercher (nom, e-mail, filière, ville…)"
+            aria-label="Rechercher un étudiant"
+          />
+          <div class="exports">
+            <button id="export-xlsx" type="button">Excel</button>
+            <button id="export-pdf" type="button">PDF</button>
+            <button id="export" type="button" class="secondaire">CSV</button>
+          </div>
+        </div>
+
+        <div class="defile">
+          <table>
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Filière</th>
+                <th>Niveau</th>
+                <th>Envoyée le</th>
+              </tr>
+            </thead>
+            <tbody id="liste"></tbody>
+          </table>
+        </div>
+        <p id="vide" class="discret" hidden>Aucun résultat.</p>
+      </section>
+
+      <dialog id="detail">
+        <h2 id="d-titre"></h2>
+        <dl id="d-contenu"></dl>
+        <p id="d-erreur" class="msg-erreur" role="alert" hidden></p>
+        <div class="d-actions">
+          <button id="d-supprimer" type="button" class="danger">
+            Supprimer cette fiche
+          </button>
+          <button id="d-fermer" type="button" class="secondaire">Fermer</button>
+        </div>
+      </dialog>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>
