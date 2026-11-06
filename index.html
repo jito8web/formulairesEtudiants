@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fiche étudiant</title>
-    <script src="js/theme.js"></script>
+    <script src="theme.js"></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -64,10 +64,16 @@
                 name="telephone"
                 type="tel"
                 inputmode="tel"
-                placeholder="034 00 000 00"
+                maxlength="20"
+                placeholder="034 12 345 67"
                 autocomplete="tel"
+                aria-describedby="aide-tel"
                 required
               />
+              <small id="aide-tel" class="aide"
+                >Commence par 03 ou +261. Exemple : 034 12 345 67 ou +261 34 12
+                345 67</small
+              >
             </div>
             <div class="field">
               <label for="email">E-mail *</label
